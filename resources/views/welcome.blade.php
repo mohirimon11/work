@@ -29,7 +29,10 @@
             <h1><a href="{{url('/')}}"> This is Home page</a></h1>
             <ul class="list">
                 <li class="list-item"><a href="{{ Route('about.us') }}">about</a> </li>
-                <li class="list-item"><a href="{{ url('contact') }}">contact</a></li>
+                <!-- <li class="list-item"><a href="{{ url('rimon') }}">rimon</a></li> -->
+                <li class="list-item"><a href="{{Route('rimon.us')}}">rimon</a></li>
+                <li class="list-item"><a href="{{ Route('contact.us') }}">contact</a></li>
+
             </ul>
                
             
