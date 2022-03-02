@@ -57,6 +57,9 @@ Route::get(md5('/rimon'),[FirstController::class,'rimon'])->name('rimon.us');
 
 Route::get('/rimon1',[FirstController::class,'rimon'])->middleware('rimon');
 
+Route::get('/rimon12',[FirstController::class,'math']);
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

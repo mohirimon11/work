@@ -25,4 +25,12 @@ class FirstController extends Controller
         return view('rimon');
     }
 
+    //For math
+    public function math()
+    {
+        $a=1; $b=2;
+        $c=$a+$b;
+        return "$c";
+    }
+
 }
