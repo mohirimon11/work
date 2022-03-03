@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\example\FirstController;
 use App\Http\Controllers\InvokableController;
+use App\Http\Controllers\SecondController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/', function () {
     return view("welcome");
 });
 
+//Route::get('/test',[SecondController::class,'test1'])->name('test.one');
+
+
 //for about
 // Route::get('/about', function () {
 //     return view('about');
@@ -29,6 +33,8 @@ Route::get('/', function () {
 // })->name('about.us');
 
 Route::get(md5('/about'),[FirstController::class,'aboutIndex'])->name('about.us');
+
+Route::post('/about/store',[FirstController::class,'AboutStor'])->name('about.store');
 
 //For Contact
 // Route::get('/contact', function () {
@@ -58,9 +64,12 @@ Route::get(md5('/rimon'),[FirstController::class,'rimon'])->name('rimon.us');
 
 Route::get('/rimon1',[FirstController::class,'rimon'])->name('rimon1')->middleware('rimon');
 
-Route::get('/math',[FirstController::class,'math']);
+Route::get('/testone',[SecondController::class,'test']);
 
-Route::get('/test', InvokableController::class);
+Route::get('/test1', InvokableController::class);
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

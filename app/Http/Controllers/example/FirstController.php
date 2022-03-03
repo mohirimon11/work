@@ -4,6 +4,7 @@ namespace App\Http\Controllers\example;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\SecondController;
 
 class FirstController extends Controller
 {
@@ -31,6 +32,25 @@ class FirstController extends Controller
         $a=1; $b=2;
         $c=$a+$b;
         return "$c";
+    }
+    // public function AboutStor(request $request)
+    // {
+    //     dd($request->all());
+    // }
+
+    public function AboutStor(request $request)
+    {
+        $data=array();
+        $data['name']=$request->name;
+        $data['email']=$request->email;
+        $data['phone']=$request->phone;
+        //dd($data);
+
+        //return redirect('/');
+
+        // return redirect()->action([SecondController::class, 'test']);
+        //return redirect()->away('https://www.google.com');
+        return redirect()->back()->with('status', 'Student Insert!');
     }
 
 }
