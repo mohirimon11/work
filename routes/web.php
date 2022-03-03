@@ -56,7 +56,7 @@ Route::get(md5('/contact'),[FirstController::class,'contactIndex'])->name('conta
 
 Route::get(md5('/rimon'),[FirstController::class,'rimon'])->name('rimon.us');
 
-Route::get('/rimon1',[FirstController::class,'rimon'])->middleware('rimon');
+Route::get('/rimon1',[FirstController::class,'rimon'])->name('rimon1')->middleware('rimon');
 
 Route::get('/math',[FirstController::class,'math']);
 
