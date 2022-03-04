@@ -5,6 +5,7 @@ namespace App\Http\Controllers\example;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SecondController;
+use Illuminate\Support\Facades\View;
 
 class FirstController extends Controller
 {
@@ -51,6 +52,22 @@ class FirstController extends Controller
         // return redirect()->action([SecondController::class, 'test']);
         //return redirect()->away('https://www.google.com');
         return redirect()->back()->with('status', 'Student Insert!');
+    }
+
+    public function userName()
+    {
+        $a='mohidul ';
+        $b='islam';
+        $name="$a $b";
+        //return view('page.mohirimon');
+
+        if(view()->exists('page.mohirimon'))
+        {
+            return View::make('page.mohirimon', ['name' => $name]);
+
+        }else{
+            return "page not avalable";
+        }
     }
 
 }

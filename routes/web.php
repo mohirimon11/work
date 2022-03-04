@@ -68,6 +68,8 @@ Route::get('/testone',[SecondController::class,'test']);
 
 Route::get('/test1', InvokableController::class);
 
+// User name
+Route::get('/mohirimon',[FirstController::class,'userName'])->name('username.us');
 
 
 
