@@ -70,4 +70,20 @@ class FirstController extends Controller
         }
     }
 
+    public function load()
+    {
+        return view('form');
+    }
+
+    public function form(request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:80',
+            'password' => 'required|min:4|max:10',
+        ]);
+
+        dd($request->all());
+    }
+
 }

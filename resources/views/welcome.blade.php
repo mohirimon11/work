@@ -33,6 +33,7 @@
                 <li class="list-item"><a href="{{Route('rimon.us')}}">rimon</a></li>
                 <li class="list-item"><a href="{{ Route('contact.us') }}">contact</a></li>
                 <li class="list-item"><a href="{{ Route('username.us') }}">User Name</a></li>
+                <li class="list-item"><a href="{{ Route('form.us') }}">Form</a></li>
 
             </ul>
                

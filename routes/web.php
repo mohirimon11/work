@@ -71,6 +71,12 @@ Route::get('/test1', InvokableController::class);
 // User name
 Route::get('/mohirimon',[FirstController::class,'userName'])->name('username.us');
 
+Route::get('/form',[FirstController::class,'load'])->name('form.us');
+
+
+Route::post('/form/form',[FirstController::class,'form'])->name('form.post');
+
+
 
 
 Route::get('/dashboard', function () {
