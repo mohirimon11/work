@@ -86,4 +86,9 @@ class FirstController extends Controller
         dd($request->all());
     }
 
+    public function error()
+    {
+        abort(500);
+    }
+
 }

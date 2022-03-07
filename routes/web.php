@@ -76,6 +76,8 @@ Route::get('/form',[FirstController::class,'load'])->name('form.us');
 
 Route::post('/form/form',[FirstController::class,'form'])->name('form.post');
 
+Route::get('/error',[FirstController::class,'error']);
+
 
 
 
