@@ -79,6 +79,17 @@ Route::post('/form/form',[FirstController::class,'form'])->name('form.post');
 Route::get('/error',[FirstController::class,'error']);
 
 
+Route::get('/testlog', function(Request $request){
+    $logfile=file(storage_path().'/logs/form.php');
+    $collection=[];
+    foreach($logfile as $line_number =>$line){
+        $collection[]=array('line'=>$line_number,'content'=>htmlspecialchars($line));
+
+    }
+    dd($collection);
+});
+
+
 
 
 Route::get('/dashboard', function () {

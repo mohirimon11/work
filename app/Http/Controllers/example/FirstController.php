@@ -83,12 +83,20 @@ class FirstController extends Controller
             'password' => 'required|min:4|max:10',
         ]);
 
-        dd($request->all());
+        // dd($request->all());
+
+        \log::channel('load')->info('this form subbmite by ' .rand(1,30));
+        return redirect()->back();
     }
 
     public function error()
     {
-        abort(500);
+        $i=0;        
+        if($i==1){
+            return view('about');
+        }else{
+            abort(500);
+        }
     }
 
 }
