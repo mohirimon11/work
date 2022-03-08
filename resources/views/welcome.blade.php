@@ -35,8 +35,12 @@
                 <li class="list-item"><a href="{{ Route('username.us') }}">User Name</a></li>
                 <li class="list-item"><a href="{{ Route('form.us') }}">Form</a></li>
 
-            </ul>
-               
+            </ul>  
+            @if(Auth::check())
+            <h2>You are logged in</h2>
+            @else
+            <h2>You are not logged in</h2>
+            @endif
             
         </div>
     </body>

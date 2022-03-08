@@ -2,6 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
+            <h1 style="color:green"><a href="{{url('/')}}"><b>Home</b></a></h1>
         </h2>
     </x-slot>
 
@@ -9,8 +10,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <p>                    You're logged in!</p>
-                    <p>Hi user!</p>
+                    <p>Hi! {{ Auth::user()->name; }}</p>
+                    <p>                    You're logged in!</p><br>
+                    <p>Your email address is: <a href="mailto:{{Auth::user()->email;}}"><u>{{Auth::user()->email;}}</u></a></p>
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quasi animi odit veritatis reprehenderit adipisci iure fuga quis alias, delectus eligendi doloribus! Accusantium, reprehenderit doloribus. Quidem recusandae voluptas tempore veritatis.</p>
@@ -19,7 +21,11 @@
                     <p>Assumenda libero sed excepturi, aliquid blanditiis rerum fuga, autem, quia veritatis quos temporibus vitae numquam repudiandae qui dolorum voluptatibus a ea quidem facilis! Adipisci consequuntur iure, corporis odio iusto dolores?</p>
                     <p>Sint asperiores nemo, nostrum fugiat sunt debitis! Veritatis error, dolore eius quidem aut dolorum voluptatibus ad odio. Velit temporibus ipsum voluptates sunt aspernatur aliquam error, pariatur nobis reiciendis molestiae nostrum.</p>
                 </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <h1 style="color:red"><a href="{{url('/')}}"><b>Back</b></a></h1>
+                </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+
