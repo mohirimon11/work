@@ -4,7 +4,7 @@
 
 <h1> Store Your About Information</h1>
 @if (session('status'))
-    <div class="alert alert-success">
+    <div class="alert alert-success" style="color:Green">
         {{ session('status') }}
     </div>
 @endif

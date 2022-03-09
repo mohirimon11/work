@@ -32,7 +32,7 @@ Route::get('/', function () {
 //     return view('about');
 // })->name('about.us');
 
-Route::get(md5('/about'),[FirstController::class,'aboutIndex'])->name('about.us');
+Route::get(md5('/about'),[FirstController::class,'aboutIndex'])->middleware(['auth'])->name('about.us');
 
 Route::post('/about/store',[FirstController::class,'AboutStor'])->name('about.store');
 
