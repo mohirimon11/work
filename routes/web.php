@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\example\FirstController;
 use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\SecondController;
+use App\Http\Controllers\PasswordResetLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,8 +90,23 @@ Route::get('/testlog', function(Request $request){
     dd($collection);
 });
 
+Route::get('email/verify/{id}/{hash}', function(EmailCerificationRequest $request){
+    $request->fulfill();
+
+    return redirect('/home');
+})->middleware(['auth','signed'])->name('verification.verify');
+
+//This Route for email verification
+// Route::get('email/verify', function(){
+//     return view('auth.verify');
+// })->middleware('auth')->name('verification.notice');
+
+Route::get('email/verify',function(){
+    return view('auth.verify-email');
+})->middleware('auth');
 
 
+Route::get('resent-email',[PasswordResetLinkController::class,'createn'])->name('verification.resend');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
