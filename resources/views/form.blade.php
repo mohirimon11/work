@@ -18,7 +18,7 @@
           <div class="col-lg-3"></div>
               <div class="card col-lg-6 ml-4">
                   <!-- for combind validation -->
-              <!-- @if ($errors->any())
+              @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -26,8 +26,8 @@
                             @endforeach
                         </ul>
                     </div>
-                @endif -->
-                  <div class="card-body">
+                @endif
+                   <div class="card-body">
                     <form action="{{ Route('form.post') }}" method="post">
                         @csrf
                         <div class="mb-3">
@@ -56,9 +56,10 @@
                     </form>
                   </div>
               </div>
+
           
       </div>
-    
+
 
 
 

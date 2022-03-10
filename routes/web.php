@@ -116,6 +116,8 @@ Route::get('user/detail/{id}',[UserController::class,'details'])->name('view.det
 //For year count
 Route::get('year/count/{year}',[UserController::class,'year'])->name('number.us');
 
+//for submit password
+
 //For Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');

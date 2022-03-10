@@ -20,4 +20,11 @@ class UserController extends Controller
         $year = Crypt::decryptString($year);
         echo "This is $year";
     }
+
+    //for password store
+    // public function store(Request $req)
+    // {
+    //     $password=$req->password;
+    //     echo "this is : $password";
+    // }
 }
