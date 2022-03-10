@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\SecondController;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Hash;
+use Auth;
+
 
 class FirstController extends Controller
 {
@@ -96,6 +99,29 @@ class FirstController extends Controller
             return view('about');
         }else{
             abort(500);
+        }
+    }
+    public function passwordChange()
+    {
+        return view('passwordChange');
+    }
+
+    //for update password
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'current_password'=>'required',
+            'password'=>'required|min:6|max:16|string|confirmed',
+            'confirm_password'=>'required',
+        ]);
+        dd($request);
+        $user=Auth::user();
+        if(hash::check($request->current_password, $user->password)){
+            $user->password=Hash::make($request->password);
+            $user->save();
+            return redirect()->back()->with('success','Password Changed Successfully! ');
+        }else{
+            return redirect()->back()->with('error','Current Password Not Match!');
         }
     }
 

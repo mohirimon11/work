@@ -116,7 +116,12 @@ Route::get('user/detail/{id}',[UserController::class,'details'])->name('view.det
 //For year count
 Route::get('year/count/{year}',[UserController::class,'year'])->name('number.us');
 
-//for submit password
+//For password change
+Route::get('/password/change',[FirstController::class,'passwordChange'])->name('change.password')->middleware('verified');
+
+//For password update
+Route::post('/password/update',[FirstController::class,'updatePassword'])->name('update.password')->middleware('verified');
+
 
 //For Dashboard
 Route::get('/dashboard', function () {
