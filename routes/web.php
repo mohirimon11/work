@@ -5,6 +5,7 @@ use App\Http\Controllers\example\FirstController;
 use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\SecondController;
 use App\Http\Controllers\PasswordResetLinkController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +73,7 @@ Route::get('/test1', InvokableController::class);
 // User name
 Route::get('/mohirimon',[FirstController::class,'userName'])->name('username.us');
 
-Route::get('/form',[FirstController::class,'load'])->name('form.us');
+Route::get('/form',[FirstController::class,'load'])->name('form.us')->middleware('auth','verified');
 
 
 Route::post('/form/form',[FirstController::class,'form'])->name('form.post');
@@ -101,13 +102,21 @@ Route::get('email/verify/{id}/{hash}', function(EmailCerificationRequest $reques
 //     return view('auth.verify');
 // })->middleware('auth')->name('verification.notice');
 
+//for send verification email
 Route::get('email/verify',function(){
     return view('auth.verify-email');
 })->middleware('auth');
 
-
+//For resent verification email
 Route::get('resent-email',[PasswordResetLinkController::class,'createn'])->name('verification.resend');
 
+//For user id pass
+Route::get('user/detail/{id}',[UserController::class,'details'])->name('view.detail');
+
+//For year count
+Route::get('year/count/{year}',[UserController::class,'year'])->name('number.us');
+
+//For Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

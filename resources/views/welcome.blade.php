@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -34,6 +35,9 @@
                 <li class="list-item"><a href="{{ Route('contact.us') }}">contact</a></li>
                 <li class="list-item"><a href="{{ Route('username.us') }}">User Name</a></li>
                 <li class="list-item"><a href="{{ Route('form.us') }}">Form</a></li>
+
+                <a href="{{Route('view.detail',Crypt::encryptString('5'))}}">rimon details</a><br>
+                <a href="{{ Route('number.us',Crypt::encryptString('2022')) }}">Year Count</a>
 
             </ul>  
             @if(Auth::check())
