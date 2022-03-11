@@ -87,6 +87,7 @@ class FirstController extends Controller
         ]);
 
         //dd($request->all());
+        //return $request;
 
        \log::channel('load')->info('this form subbmite by ' .rand(1,30));
         return redirect()->back();
@@ -109,20 +110,30 @@ class FirstController extends Controller
     //for update password
     public function updatePassword(Request $request)
     {
-        $request->validate([
+        
+        $validated = $request->validate([
             'current_password'=>'required',
-            'password'=>'required|min:6|max:16|string|confirmed',
-            'confirm_password'=>'required',
+            'password'=>'required|min:6|max:16|string|',
+            'confirm_password'=>'required|same:password|min:6',
         ]);
-        dd($request);
+        
+        // //dd($request);
         $user=Auth::user();
         if(hash::check($request->current_password, $user->password)){
             $user->password=Hash::make($request->password);
             $user->save();
             return redirect()->back()->with('success','Password Changed Successfully! ');
+            return "ok";
+        
+            // return Auth::user()->password;
         }else{
             return redirect()->back()->with('error','Current Password Not Match!');
         }
+    }
+    public function password(Request $req)
+    {
+        $password=Hash::make($req->password);
+        return "Password is: $password" ;
     }
 
 

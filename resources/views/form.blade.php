@@ -1,4 +1,4 @@
-<a href="{{url('/')}}"></a>
+<a href="{{url('/')}}">home</a>
 
 
 <!doctype html>

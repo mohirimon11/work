@@ -122,6 +122,8 @@ Route::get('/password/change',[FirstController::class,'passwordChange'])->name('
 //For password update
 Route::post('/password/update',[FirstController::class,'updatePassword'])->name('update.password')->middleware('verified');
 
+//
+Route::post('/password',[FirstController::class,'password'])->name('data.password');
 
 //For Dashboard
 Route::get('/dashboard', function () {
