@@ -10,5 +10,9 @@ class SecondController extends Controller
     {
         return "this come from ";
     }
+    public function home()
+    {
+        return view('home');
+    }
 
 }

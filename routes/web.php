@@ -125,6 +125,10 @@ Route::post('/password/update',[FirstController::class,'updatePassword'])->name(
 //
 Route::post('/password',[FirstController::class,'password'])->name('data.password');
 
+//for test
+Route::get('/home',[SecondController::class,'home']);
+
+
 //For Dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');

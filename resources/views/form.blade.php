@@ -1,4 +1,3 @@
-<a href="{{url('/')}}">home</a>
 
 
 <!doctype html>
@@ -28,6 +27,12 @@
                     </div>
                 @endif
                    <div class="card-body">
+                        <a href="{{url('/')}}">
+                            <button class="btn btn-outline-secondary">
+                                HOME
+                            </button>
+                        </a>
+                   <a href="{{url('/')}}"></a>
                     <form action="{{ Route('form.post') }}" method="post">
                         @csrf
                         <div class="mb-3">
@@ -52,7 +57,7 @@
                             @enderror
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
                     </form>
                   </div>
               </div>
