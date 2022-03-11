@@ -31,7 +31,7 @@
                                         @csrf
                                         <div>
                                             <label>Current Password</label>
-                                            <input type="password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" require>
+                                            <input type="password" name="current_password" class="form-control @error('current_password') is-invalid @enderror" require value="{{old('current_password')}}">
                                                 @error('current_password')
                                                 <strong class="text-danger">{{ $message }}</strong>
                                                 @enderror

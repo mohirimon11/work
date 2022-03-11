@@ -123,8 +123,10 @@ class FirstController extends Controller
         if(hash::check($request->current_password, $user->password)){
             $user->password=Hash::make($request->password);
             $user->save();
-            return redirect()->back()->with('success','Password Changed Successfully! ');
-            return "ok";
+                Auth::logout();
+                return redirect()->route('login');
+            // return redirect()->back()->with('success','Password Changed Successfully! ');
+            // return "ok";
         
             // return Auth::user()->password;
         }else{
