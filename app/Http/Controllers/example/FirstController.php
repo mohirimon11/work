@@ -89,8 +89,9 @@ class FirstController extends Controller
         //dd($request->all());
         //return $request;
 
-       \log::channel('load')->info('this form subbmite by ' .rand(1,30));
-        return redirect()->back();
+      // \log::channel('load')->info('this form subbmite by ' .rand(1,30));
+        //return redirect()->back();
+        return $request;
     }
 
     public function error()
