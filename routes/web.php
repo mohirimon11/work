@@ -6,6 +6,8 @@ use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\SecondController;
 use App\Http\Controllers\PasswordResetLinkController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\admin\ClassController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +23,96 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     return view("welcome");
 });
+
+//For class from Db
+Route::get('class',[ClassController::class,'index'])->name('class.index');
+
+//test layout
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //Route::get('/test',[SecondController::class,'test1'])->name('test.one');
 
