@@ -42,4 +42,37 @@ class ClassController extends Controller
             return redirect()->back()->with('status','Class insert fail');
         }
     }
+
+    public function delete($id)
+    {
+        
+        if (DB::table('classes')->where('id',$id)->delete()) {
+            return redirect()->back()->with('status','Class successfully deleted');
+        }else{
+            return redirect()->back()->with('status','Class Delete fail');
+        }
+    }
+
+    public function editPage($id)
+    {
+        $class=DB::table('classes')->get();
+        $class=DB::table('classes')->where('id',$id)->first();
+        return view('admin.class.update',compact('class'));
+    }
+    public function update(Request $request,$id)
+    {
+        $validated = $request->validate([
+            'class_name'=>'required|unique:classes',
+        ]);
+
+        $data=array(
+            'class_name'=>$request->class_name,
+        );
+
+        if (DB::table('classes')->where('id',$id)->update($data)) {
+            return redirect()->back()->with('status','Class successfully deleted');
+        }else{
+            return redirect()->back()->with('status','Class Delete fail');
+        }
+    }
 }

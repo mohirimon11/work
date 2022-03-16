@@ -19,7 +19,7 @@
                             
                             <div class="card-body">
                                 <a href="{{Route('class.index')}}" class="btn btn-info btn-sm">Class</a>
-                                <a href="" class="btn btn-info btn-sm">Student</a>
+                                <a href="{{route('student.index')}}" class="btn btn-info btn-sm">Student</a>
                                 <br>
                                 @if(session('status'))
                                 <div class="alert alert-success" role="alert">

@@ -7,6 +7,8 @@ use App\Http\Controllers\SecondController;
 use App\Http\Controllers\PasswordResetLinkController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\admin\ClassController;
+use App\Http\Controllers\admin\StudentController;
+
 
 
 /*
@@ -33,10 +35,17 @@ Route::get('create/class',[ClassController::class,'create'])->name('class.create
 //Class Insert
 Route::post('class/store',[ClassController::class,'store'])->name('class.store');
 
+//Class Delete
+Route::get('class/delete/{id}',[ClassController::class,'delete'])->name('class.delete');
 
+//Class Update
+{
+Route::get('class/edit/{id}',[ClassController::class,'editPage'])->name('class.edit');
+Route::post('class/update/{id}',[ClassController::class,'update'])->name('class.update');
+}
 
-
-
+//__Student crud__//
+Route::resource('student',StudentController::class);
 
 
 
@@ -224,7 +233,7 @@ Route::post('/password/update',[FirstController::class,'updatePassword'])->name(
 Route::post('/password',[FirstController::class,'password'])->name('data.password');
 
 //for test
-Route::get('/home',[SecondController::class,'home']);
+Route::get('/home',[SecondController::class,'home'])->name('home.home');
 
 
 //For Dashboard

@@ -1,0 +1,113 @@
+<?php
+
+namespace App\Http\Controllers\admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use DB;
+
+class StudentController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        // return "this is index";
+        //$student=DB::table('students')->orderBy('roll','ASC')->get();
+        $student = DB::table('students')
+            ->leftJoin('classes', 'classes.id', '=', 'students.class_id')
+            ->select('students.id','students.name','students.roll','students.phone','classes.class_name','students.class_id')
+            ->get();
+        return view('admin.student.index',compact('student'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $classes=DB::table('classes')->get();
+        return view('admin.student.create',compact('classes'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {        
+        $validated = $request->validate([
+            'class_id'=>'required|',
+            'name'=>'required|',
+            'roll'=>'required|unique:students',
+            'phone'=>'required|unique:students',
+
+        ]);
+
+        $data=array(
+            'class_id'=>$request->class_id,
+            'name'=>$request->name,
+            'roll'=>$request->roll,
+            'phone'=>$request->phone,
+
+
+        );
+        if(DB::table('students')->insert($data)){
+        return redirect()->back()->with('status','Class successfully inserted');
+        }else{
+            return redirect()->back()->with('status','Class insert fail');
+        }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+}

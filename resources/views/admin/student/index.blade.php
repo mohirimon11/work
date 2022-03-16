@@ -1,4 +1,4 @@
-        <!doctype html>
+<!doctype html>
             <html lang="en">
             <head>
                 <!-- Required meta tags -->
@@ -14,14 +14,14 @@
                 <div class="row">
                     <div class="col-lg-3"></div>
                         <div class="card col-lg-6 ml-4">
-                            <h1 style="color: #254CE9 ">This is Class Home page</h1>
+                            <h1 style="color: #254CE9 ">This is Student Home page</h1>
                             <div class="card-headere">
-                                {{__('All Class List') }}
+                                {{__('All student List') }}
                             </div>
                             
                             <div class="card-body">
-                            <a href="{{Route('home.home')}}" class="btn tbn-sm btn-primary" style="float:left;">Class & Student</a>
-                                <a href="{{Route('class.create')}}" class="btn tbn-sm btn-primary" style="float:right;">Add New</a>
+                                <a href="{{Route('home.home')}}" class="btn tbn-sm btn-primary" style="float:left;">Class & Student</a>
+                                <a href="{{Route('student.create')}}" class="btn tbn-sm btn-primary" style="float:right;">Add New</a>
                                     @if (session('status'))
                                         <div class="alert alert-success" role="alert">
                                             {{ session('status') }}
@@ -31,17 +31,25 @@
                                    <thead>
                                        <tr>
                                             <td>SL</td>
-                                            <td>Id</td>
-                                            <td>Class Name</td>
+                                            <td>Id</td>                                            
+                                            <td>Name</td>
+                                            <td>Roll</td>
+                                            <td>Class Id</td>
+                                            <td>Class name</td>
+                                            <td>Phone</td>
                                             <td>Action</td>
                                        </tr>
                                    </thead>
                                    <tbody>
-                                       @foreach($class as $key=>$row)
+                                       @foreach($student as $key=>$row)
                                             <tr>
                                                 <td>{{++$key}}</td>
                                                 <td>{{$row->id}}</td>
+                                                <td>{{$row->name}}</td>
+                                                <td>{{$row->roll}}</td>
+                                                <td>{{$row->class_id}}</td>
                                                 <td>{{$row->class_name}}</td>
+                                                <td>+880{{$row->phone}}</td>
                                                 <td>
                                                     <a href="{{Route('class.edit',$row->id)}}" class="btn btn-sm btn-info">Edit</a>
                                                     <a href="{{Route('class.delete',$row->id)}}" class="btn btn-sm btn-danger">Delete</a>

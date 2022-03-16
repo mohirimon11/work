@@ -167,6 +167,7 @@
 
             <div style="text-align: center;">
             <ul style="display: inline-block; text-align: left;" class="list">
+                    <li class="list-item"><a href="{{ Route('home.home') }}">Class & Student</a></li>
                     <li class="list-item"><a href="{{ Route('about.us') }}">About</a> </li>
                     <!-- <li class="list-item"><a href="{{ url('rimon') }}">rimon</a></li> -->
                     <li class="list-item"><a href="{{Route('rimon.us')}}">Rimon</a></li>
