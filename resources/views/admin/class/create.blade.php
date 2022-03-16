@@ -17,11 +17,6 @@
                             
                             <div class="card-body">
                                 <!-- for combind validation -->
-                                @if (session('status'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('status') }}
-                                    </div>
-                                @endif
                                     <a href="{{Route('class.index')}}">
                                         <button class="btn btn-outline-secondary" style="float:right;">
                                             All Class
@@ -29,15 +24,20 @@
                                     </a>
                                     <h2 style="color:#15DCE6 "> Add Class</h2>
 
+                                    @if (session('status'))
+                                    <div class="alert alert-success" role="alert">
+                                        {{ session('status') }}
+                                    </div>
+                                @endif
                                 <form action="{{ Route('class.store') }}" method="POST">
                                     @csrf
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">class name</label>
-                                        <input type="text" name="class_name" class="form-control @error('class_name') is-invalid @enderror" placeholder="Class name" value="{{old('class_name')}}" >
+                                    <div class="">
+                                        <label for="floatingInputValue" class="form-label">&nbsp;&nbsp;&nbsp;Class name</label>
+                                        <input type="text" name="class_name" class="form-control @error('class_name') is-invalid @enderror" id="floatingInputValue" placeholder="Class name" value="{{old('class_name')}}" >
                                         @error('class_name')
                                             <strong class="text-danger">{{ $message }}</strong>
                                         @enderror
-                                    </div>
+                                    </div><br>
                                     <button type="submit" class="btn btn-outline-primary">Submit</button>
                                 </form>
                             </div>

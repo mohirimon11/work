@@ -25,6 +25,7 @@
                                    <thead>
                                        <tr>
                                             <td>SL</td>
+                                            <td>Id</td>
                                             <td>Class Name</td>
                                             <td>Action</td>
                                        </tr>
@@ -33,6 +34,7 @@
                                        @foreach($class as $key=>$row)
                                             <tr>
                                                 <td>{{++$key}}</td>
+                                                <td>{{$row->id}}</td>
                                                 <td>{{$row->class_name}}</td>
                                                 <td>
                                                     <a href="" class="btn btn-sm btn-info">Edit</a>
