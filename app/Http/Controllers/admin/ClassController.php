@@ -21,4 +21,25 @@ class ClassController extends Controller
         // dd($class);
         return view('admin.class.index',compact('class'));
     }
+
+    public function create()
+    {
+        return view('admin.class.create');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'class_name'=>'required|unique:classes',
+        ]);
+
+        $data=array(
+            'class_name'=>$request->class_name,
+        );
+        if(DB::table('classes')->insert($data)){
+        return redirect()->back()->with('status','Class successfully inserted');
+        }else{
+            return redirect()->back()->with('status','Class insert fail');
+        }
+    }
 }

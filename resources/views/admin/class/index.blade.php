@@ -20,7 +20,7 @@
                             </div>
                             
                             <div class="card-body">
-                                <a href="" class="btn tbn-sm btn-primary" style="float:right;">Add New</a>
+                                <a href="{{Route('class.create')}}" class="btn tbn-sm btn-primary" style="float:right;">Add New</a>
                                <table class="table table-responsibe table-strioe">
                                    <thead>
                                        <tr>

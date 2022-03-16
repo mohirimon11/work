@@ -27,7 +27,13 @@ Route::get('/', function () {
 //For class from Db
 Route::get('class',[ClassController::class,'index'])->name('class.index');
 
-//test layout
+//Class Insert page call
+Route::get('create/class',[ClassController::class,'create'])->name('class.create');
+
+//Class Insert
+Route::post('class/store',[ClassController::class,'store'])->name('class.store');
+
+
 
 
 

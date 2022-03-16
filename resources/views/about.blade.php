@@ -30,7 +30,7 @@
                                     </a>
                                     <h2 style="color:#15DCE6 "> Store Your About Information</h2>
 
-                                <form action="{{ Route('about.store') }}" method="post">
+                                <form action="{{ Route('about.store') }}" method="POST">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="exampleInputEmail1" class="form-label">Name</label>
