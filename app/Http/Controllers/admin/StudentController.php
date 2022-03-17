@@ -85,7 +85,9 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $classes=DB::table('classes')->get();
+        $student=DB::table('students')->where('id',$id)->first();
+        return view('admin.student.update',compact('classes','student'));
     }
 
     /**
@@ -97,7 +99,26 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'class_id'=>'required|',
+            'name'=>'required|',
+            'roll'=>'required|',
+            'phone'=>'required|',
+
+        ]);
+        $data=array(
+            'class_id'=>$request->class_id,
+            'name'=>$request->name,
+            'roll'=>$request->roll,
+            'phone'=>$request->phone,
+
+
+        );
+        if(DB::table('students')->where('id',$id)->update($data)){
+        return redirect()->route('student.index')->with('status','Class successfully inserted');
+        }else{
+            return redirect()->route('student.edit')->with('status','Class insert fail');
+        }
     }
 
     /**
@@ -108,6 +129,10 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (DB::table('students')->where('id',$id)->delete()) {
+            return redirect()->back()->with('status','Class successfully deleted');
+        }else{
+            return redirect()->back()->with('status','Class Delete fail');
+        }
     }
 }

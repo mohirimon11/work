@@ -29,7 +29,7 @@
                                         {{ session('status') }}
                                     </div>
                                     @endif
-                                <form action="{{ Route('class.update') }}" method="POST">
+                                <form action="{{ Route('class.update',$classes->id) }}" method="POST">
                                     @csrf
                                     <div class="">
                                         <label for="floatingInputValue" class="form-label">&nbsp;&nbsp;&nbsp;Class name</label>

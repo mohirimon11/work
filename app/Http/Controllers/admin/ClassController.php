@@ -55,24 +55,24 @@ class ClassController extends Controller
 
     public function editPage($id)
     {
-        $class=DB::table('classes')->get();
-        $class=DB::table('classes')->where('id',$id)->first();
-        return view('admin.class.update',compact('class'));
+       // $class=DB::table('classes')->get();
+        $classes=DB::table('classes')->where('id',$id)->first();
+        return view('admin.class.update',compact('classes'));
+    //return view('admin.class.update');
     }
     public function update(Request $request,$id)
     {
         $validated = $request->validate([
-            'class_name'=>'required|unique:classes',
+            'class_name'=>'required|',
         ]);
-
         $data=array(
             'class_name'=>$request->class_name,
         );
-
+        // dd($data);
         if (DB::table('classes')->where('id',$id)->update($data)) {
-            return redirect()->back()->with('status','Class successfully deleted');
+            return redirect()->route('class.index')->with('status','Class successfully updated');
         }else{
-            return redirect()->back()->with('status','Class Delete fail');
+            return redirect()->route('class.edit')->with('status','Class update fail');
         }
     }
 }

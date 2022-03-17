@@ -233,7 +233,7 @@ Route::post('/password/update',[FirstController::class,'updatePassword'])->name(
 Route::post('/password',[FirstController::class,'password'])->name('data.password');
 
 //for test
-Route::get('/home',[SecondController::class,'home'])->name('home.home');
+Route::get('/home',[SecondController::class,'home'])->name('home.home')->middleware('auth');
 
 
 //For Dashboard
