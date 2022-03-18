@@ -25,44 +25,32 @@
                                             {{ session('status') }}
                                         </div>
                                     @endif
-                                <a href="{{Route('home.home')}}" class="btn tbn-sm btn-primary" style="float:left;">Class & Student</a>
-                                <a href="{{Route('student.create')}}" class="btn tbn-sm btn-primary" style="float:right;">Add New</a>
+                               <!-- <a href="{{Route('home.home')}}" class="btn tbn-sm btn-primary" style="float:left;">Class & Student</a>
+                                <a href="{{Route('student.create')}}" class="btn tbn-sm btn-primary" style="float:right;">Add New</a> -->
                                 <table class="table table-dark table-striped">
                                     <thead>
                                         <tr>
-                                            <td>SL</td>
-                                            <td>Id</td>                                            
+                                            <td>ID</td>
                                             <td>Name</td>
+                                            <td>Class Name</td>
                                             <td>Roll</td>
                                             <td>Class Id</td>
-                                            <td>Class name</td>
                                             <td>Phone</td>
-                                            <td>Action</td>
+                                            <!-- <td>Action</td> -->
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($student as $key=>$row)
+                                        
                                             <tr>
-                                                <td>{{++$key}}</td>
-                                                <td>{{$row->id}}</td>
-                                                <td>{{$row->name}}</td>
-                                                <td>{{$row->roll}}</td>
-                                                <td>{{$row->class_id}}</td>
-                                                <td>{{$row->class_name}}</td>
-                                                <td>+880{{$row->phone}}</td>
-                                                <td>
-                                                    <div>
-                                                    <a href="{{Route('student.edit',$row->id)}}" class="btn btn-sm btn-info">Edit</a>
-                                                    <a href="{{Route('student.show',$row->id)}}" class="btn btn-sm btn-success">view</a>
-                                                    <form action="{{Route('student.destroy',$row->id)}}" method="POST">
-                                                        @csrf 
-                                                        <input type="hidden" name="_method" value="DELETE">
-                                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
-                                                    </form>
-                                                    </div>
-                                                </td>
+                                                <td>{{$students->id}}</td>
+                                                <td>{{$students->name}}</td>
+                                                <td>{{$students->class_name}}</td>
+                                                <td>{{$students->roll}}</td>
+                                                <td>{{$students->class_id}}</td>
+                                                <td>+880{{$students->phone}}</td>
+                                                
                                             </tr>
-                                        @endforeach
+                                        
                                    </tbody>
                                </table>
                             </div>

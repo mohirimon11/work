@@ -27,7 +27,7 @@
                                             {{ session('status') }}
                                         </div>
                                     @endif
-                               <table class="table table-responsibe table-strioe">
+                               <table class="table table-dark table-striped">
                                    <thead>
                                        <tr>
                                             <td>SL</td>

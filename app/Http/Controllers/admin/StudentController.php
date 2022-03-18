@@ -74,7 +74,13 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        // $students=DB::table('students')->where('id',$id)->first();
+        $students = DB::table('students')
+            ->leftJoin('classes', 'classes.id', '=', 'students.class_id')
+            ->select('students.id','students.name','students.roll','students.phone','classes.class_name','students.class_id')
+            ->where('students.id',$id)
+            ->first();
+        return view('admin.student.view',compact('students'));
     }
 
     /**
