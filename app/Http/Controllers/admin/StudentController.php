@@ -120,10 +120,11 @@ class StudentController extends Controller
 
 
         );
+        
         if(DB::table('students')->where('id',$id)->update($data)){
-        return redirect()->route('student.index')->with('status','Class successfully inserted');
+        return redirect()->route('student.index')->with('status','Student successfully inserted');
         }else{
-            return redirect()->route('student.edit')->with('status','Class insert fail');
+            return redirect()->route('student.edit')->with('status','student insert fail');
         }
     }
 

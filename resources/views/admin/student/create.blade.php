@@ -17,13 +17,13 @@
                             
                             <div class="card-body">
                                 <!-- for combind validation -->
-                                    <a href="{{Route('student.index')}}">
+                                    <!-- <a href="{{Route('student.index')}}">
                                         <button class="btn btn-outline-secondary" style="float:right;">
-                                            All Student
+                                            
                                         </button>
-                                    </a>
+                                    </a> -->
+                                    <a href="{{Route('student.index')}}" class="btn btn-outline-secondary" style="float:right;">All Student</a>
                                     <h2 style="color:#15DCE6 "> Add Student</h2>
-
                                     @if (session('status'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('status') }}

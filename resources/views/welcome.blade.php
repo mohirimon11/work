@@ -177,19 +177,20 @@
                     <li class="list-item"><a href="{{Route('view.detail',Crypt::encryptString('5'))}}">Rimon details</a></li>
                     <li class="list-item"><a href="{{ Route('number.us',Crypt::encryptString('2022')) }}">Year Count</a></li>
                 </ul>  
+                
                 @if(Auth::check())
                 <h2>You are logged in</h2>
                 @else
                 <h2>You are not logged in</h2>
                 @endif
             </div>
-               
-        <!-- <div class="title">Create Amazing Website</div>
-        <div class="sub_title">Pure HTML & CSS Only</div>
+            
+        <div class="title"></div>
+        <div class="sub_title"></div>
         <div class="btns">
         <button>Learn More</button>
         <button>Subscribe</button>
-        </div> -->
+        </div>
     </div>
     </body>
     </html>

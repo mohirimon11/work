@@ -42,6 +42,7 @@ Route::get('class/delete/{id}',[ClassController::class,'delete'])->name('class.d
 {
 Route::get('class/edit/{id}',[ClassController::class,'editPage'])->name('class.edit');
 Route::post('class/update/{id}',[ClassController::class,'update'])->name('class.update');
+Route::get('class/view/{id}',[ClassController::class,'show'])->name('class.show');
 }
 
 //__Student crud__//

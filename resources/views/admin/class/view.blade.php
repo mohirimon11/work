@@ -14,10 +14,10 @@
                 <div class="row">
                     <div class="col-lg-3"></div>
                         <div class="card col-lg-6 ml-4">
-                            <h1 style="color: #254CE9 ">This is Student Home page</h1>
+                            <h1 style="color: #254CE9 ">This is Class Home page</h1>
                             <div class="card-headere">
-                                <h5 style="color:#20B2AA"> {{$students->name}}'s  {{__('Details') }}</h5>
-                                <a href="{{Route('student.index')}}" class="btn btn-outline-secondary" style="float:right;">All Student's</a>
+                            {{__(' Class ') }}  {{$classes->class_name}} {{__(' Details') }}
+                            <a href="{{Route('student.index')}}" class="btn btn-outline-secondary" style="float:right;">All Student's</a>
                             </div>
                             
                             <div class="card-body">
@@ -26,30 +26,19 @@
                                             {{ session('status') }}
                                         </div>
                                     @endif
-                                <!-- <a href="{{Route('home.home')}}" class="btn tbn-sm btn-primary" style="float:left;">Class & Student</a>
-                                <a href="{{Route('student.create')}}" class="btn tbn-sm btn-primary" style="float:right;">Add New</a> -->
                                 <table class="table table-dark table-striped">
                                     <thead>
                                         <tr>
                                             <td>ID</td>
-                                            <td>Name</td>
                                             <td>Class Name</td>
-                                            <td>Roll</td>
-                                            <td>Class Id</td>
-                                            <td>Phone</td>
                                             <!-- <td>Action</td> -->
                                         </tr>
                                     </thead>
                                     <tbody>
                                         
                                             <tr>
-                                                <td>{{$students->id}}</td>
-                                                <td>{{$students->name}}</td>
-                                                <td>{{$students->class_name}}</td>
-                                                <td>{{$students->roll}}</td>
-                                                <td>{{$students->class_id}}</td>
-                                                <td>+880{{$students->phone}}</td>
-                                                
+                                                <td>{{$classes->id}}</td>
+                                                <td>{{$classes->class_name}}</td>                                                
                                             </tr>
                                         
                                     </tbody>

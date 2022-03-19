@@ -75,4 +75,11 @@ class ClassController extends Controller
             return redirect()->route('class.edit')->with('status','Class update fail');
         }
     }
+
+    public function show($id)
+    {
+        //dd($id);
+        $classes=DB::table('classes')->where('id',$id)->first();
+        return view('admin.class.view',compact('classes'));
+    }
 }

@@ -27,29 +27,30 @@
                                             {{ session('status') }}
                                         </div>
                                     @endif
-                               <table class="table table-dark table-striped">
-                                   <thead>
-                                       <tr>
+                                <table class="table table-dark table-striped">
+                                    <thead>
+                                        <tr>
                                             <td>SL</td>
                                             <td>Id</td>
                                             <td>Class Name</td>
                                             <td>Action</td>
-                                       </tr>
-                                   </thead>
-                                   <tbody>
-                                       @foreach($class as $key=>$row)
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($class as $key=>$row)
                                             <tr>
                                                 <td>{{++$key}}</td>
                                                 <td>{{$row->id}}</td>
                                                 <td>{{$row->class_name}}</td>
                                                 <td>
                                                     <a href="{{Route('class.edit',$row->id)}}" class="btn btn-sm btn-info">Edit</a>
+                                                    <a href="{{Route('class.show',$row->id)}}" class="btn btn-sm btn-success">View</a>
                                                     <a href="{{Route('class.delete',$row->id)}}" class="btn btn-sm btn-danger">Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach
-                                   </tbody>
-                               </table>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 

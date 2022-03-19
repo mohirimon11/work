@@ -15,11 +15,13 @@
                     <div class="col-lg-3"></div>
                         <div class="card col-lg-6 ml-4">
                             <h1 style="color: #254CE9 ">This is Db Home page</h1>
-                            <div class="card-headere">{{__('Dashboard') }}</div>
-                            
+                            <div class="card-headere">
+                                {{__('Dashboard') }}
+                                <a href="{{url('/')}}" class="btn btn-outline-dark" style="float:right;">HOME</a>
+                            </div>                            
                             <div class="card-body">
-                                <a href="{{Route('class.index')}}" class="btn btn-info btn-sm">Class</a>
-                                <a href="{{route('student.index')}}" class="btn btn-info btn-sm">Student</a>
+                                <a href="{{Route('class.index')}}" class="btn btn-outline-info">Class</a>
+                                <a href="{{route('student.index')}}" class="btn btn-outline-info">Student</a>
                                 <br>
                                 @if(session('status'))
                                 <div class="alert alert-success" role="alert">
@@ -27,7 +29,7 @@
                                 </div>
                                 @endif
 
-                                  {{__('You Are Logged in!')}} {{Auth::user()->name}}  
+                                <!-- <h4>{{__('You Are Logged in! ')}}<u><b>{{Auth::user()->name}}</b></u></h4>  -->
                             </div>
                         </div>
 
