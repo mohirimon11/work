@@ -17,25 +17,39 @@
                             
                             <div class="card-body">
                                 <!-- for combind validation -->
-                                    <a href="{{Route('class.index')}}">
+                                    <a href="{{Route('teacher.index')}}">
                                         <button class="btn btn-outline-secondary" style="float:right;">
-                                            All Class
+                                            All Teacher
                                         </button>
                                     </a>
-                                    <h2 style="color:#15DCE6 "> Update Class</h2>
+                                    <h2 style="color:#15DCE6 "> Update Teacher</h2>
 
                                     @if (session('status'))
                                     <div class="alert alert-success" role="alert">
                                         {{ session('status') }}
                                     </div>
                                     @endif
-                                <form action="{{ Route('class.update',$classes->id) }}" method="POST">
+                                <form action="{{ Route('teacher.update',$teacher->id) }}" method="POST">
                                     @csrf
                                     <input type="hidden" name="_method" value="PATCH">
                                     <div class="">
-                                        <label for="floatingInputValue" class="form-label">&nbsp;&nbsp;&nbsp;Class name</label>
-                                        <input type="text" name="class_name" class="form-control"  value="{{$classes->class_name}}" required>
+                                        <label for="floatingInputValue" class="form-label">&nbsp;&nbsp;&nbsp;name</label>
+                                        <input type="text" name="name" class="form-control"  value="{{$teacher->name}}" required>
                                         @error('class_name')
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        @enderror
+                                    </div><br>
+                                    <div class="">
+                                        <label for="floatingInputValue" class="form-label">&nbsp;&nbsp;&nbsp;Email</label>
+                                        <input type="text" name="email" class="form-control"  value="{{$teacher->email}}" required>
+                                        @error('email')
+                                            <strong class="text-danger">{{ $message }}</strong>
+                                        @enderror
+                                    </div><br>
+                                    <div class="">
+                                        <label for="floatingInputValue" class="form-label">&nbsp;&nbsp;&nbsp;Address</label>
+                                        <input type="text" name="address" class="form-control"  value="{{$teacher->address}}" required>
+                                        @error('address')
                                             <strong class="text-danger">{{ $message }}</strong>
                                         @enderror
                                     </div><br>
