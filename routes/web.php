@@ -9,7 +9,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\admin\ClassController;
 use App\Http\Controllers\admin\StudentController;
 use App\Http\Controllers\admin\ClassesController;
-use App\Http\Controllers\admin\TeacherController;
+
+
 
 
 /*
@@ -32,10 +33,6 @@ Route::resource('student',StudentController::class);
 
 //__Student Crud__//
 Route::resource('class',ClassesController::class);
-
-//__Teacher Crud__//
-Route::resource('teacher',TeacherController::class);
-
 
 
 
