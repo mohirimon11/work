@@ -6,10 +6,7 @@ use App\Http\Controllers\InvokableController;
 use App\Http\Controllers\SecondController;
 use App\Http\Controllers\PasswordResetLinkController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\admin\ClassController;
-use App\Http\Controllers\admin\StudentController;
-use App\Http\Controllers\admin\ClassesController;
-
+use App\Http\Controllers\admin\CategoryController;
 
 
 
@@ -27,16 +24,41 @@ use App\Http\Controllers\admin\ClassesController;
 Route::get('/', function () {
     return view("welcome");
 });
+// //__Resourse Route__//
+// {
+// //__Student crud__//
+// Route::resource('student',StudentController::class);
 
-//__Student crud__//
-Route::resource('student',StudentController::class);
+// //__Student Crud__//
+// Route::resource('class',ClassesController::class);
 
-//__Student Crud__//
-Route::resource('class',ClassesController::class);
+// //__Teacher Crud__//
+// Route::resource('teacher',TeacherController::class);
+// }
+
+
+
+//__Category route__//
+{
+//for index
+Route::get('category/index',[CategoryController::class,'index'])->name('category.index');
+// create
+Route::get('category/create',[CategoryController::class,'create'])->name('category.create');
+//store
+Route::post('category/store',[CategoryController::class,'store'])->name('category.store');
+//edit
+Route::get('category/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+//update
+Route::post('category/update/{id}',[CategoryController::class,'update'])->name('category.update');
+//Delete
+Route::get('category/delete/{id}',[CategoryController::class,'destroy'])->name('category.destroy');
 
 
 
 
+
+
+}
 
 
 

@@ -20,8 +20,7 @@
                                 <a href="{{url('/')}}" class="btn btn-outline-dark" style="float:right;">HOME</a>
                             </div>                            
                             <div class="card-body">
-                                <a href="{{Route('class.index')}}" class="btn btn-outline-info">Class</a>
-                                <a href="{{route('student.index')}}" class="btn btn-outline-info">Student</a>
+                            <a href="{{route('category.index')}}" class="btn btn-outline-dark" style="float:right;">All Category</a>
                                 <br>
                                 @if(session('status'))
                                 <div class="alert alert-success" role="alert">
